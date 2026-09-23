@@ -90,6 +90,7 @@
     section { padding: 78px 0; }
     section.page { padding: 0; }
     section:not([class]) + section:not([class]) { padding-top: 0; }
+    section:not([class]) + section.delay-section { padding-top: 0; }
     .section-head { max-width: 800px; margin-bottom: 37px; }
     .section-head p { margin: 17px 0 0; color: var(--muted); font-size: 1.1rem; }
     .section-head .eyebrow { color: var(--red); }
@@ -102,6 +103,19 @@
     .note { padding: 34px; background: var(--mist); border-left: 6px solid var(--gold); }
     .note p { margin: 0; font-size: 1.17rem; color: var(--navy); }
     .note strong { color: var(--red); }
+    .delay-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: start; }
+    .delay-top .section-head { margin-bottom: 0; }
+    .delay-top .note { margin-top: 38px; }
+    .harm-title { margin: 64px 0 10px; font-size: clamp(1.7rem, 2.6vw, 2.2rem); color: var(--navy); }
+    .harm-lede { margin: 0 0 28px; max-width: 760px; color: var(--muted); font-size: 1.1rem; }
+    .harm-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .harm-card { display: flex; flex-direction: column; padding: 26px 28px; background: var(--paper); border-top: 5px solid var(--red); box-shadow: var(--shadow); }
+    .harm-stat { display: block; margin-bottom: 10px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.1; color: var(--red); letter-spacing: -.02em; }
+    .harm-card p { margin: 0 0 14px; color: var(--ink); line-height: 1.6; }
+    .harm-src { margin-top: auto; font-size: .82rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .harm-src a { color: var(--navy2); }
+    .harm-caveat { margin: 26px 0 0; max-width: 860px; color: var(--muted); font-size: .93rem; font-style: italic; }
+    .harm-close { margin: 30px 0 0; padding: 22px 28px; background: var(--navy); color: #fff; border-left: 6px solid var(--gold); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.2rem, 1.9vw, 1.5rem); font-weight: 700; line-height: 1.35; }
     .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .quote-card { padding: 28px; background: var(--paper); border-left: 5px solid var(--gold); box-shadow: var(--shadow); }
     .quote-card .quote-text { margin: 0 0 14px; font-size: 1.05rem; color: var(--navy); font-style: italic; }
@@ -211,6 +225,9 @@
       .hero { padding: 75px 0 70px; }
       section { padding: 58px 0; }
       .cards, .questions, .split, .footer-grid, .quote-grid { grid-template-columns: 1fr; }
+      .delay-top, .harm-grid { grid-template-columns: 1fr; gap: 20px; }
+      .delay-top .note { margin-top: 0; }
+      .harm-title { margin-top: 48px; }
       .card, .question, .report { padding: 25px; }
       .page-hero { padding: 58px 0 49px; }
     }
@@ -418,17 +435,45 @@
           </aside>
         </div>
       </section>
-      <section>
-        <div class="wrap split">
-          <div class="section-head" style="margin-bottom:0">
-            <span class="eyebrow">The real choice</span>
-            <h2>Every month of delay has a cost.</h2>
-            <p>This isn't a choice between "fast" and "careful." A judge has already reviewed the process and found the challengers' core legal theory has no support. Continued litigation from the losing bidders doesn't add scrutiny the deal hasn't already survived. It risks the savings and schedule Hampden County was promised.</p>
-            <p><strong>And there's a human cost.</strong> The current Hampden County courthouse (the Roderick Ireland Courthouse) has a documented history of serious employee illness. Two Springfield District Court judges who worked out of the same judicial chambers, Robert F. Kumor Jr. (died 2013) and William J. Boyle (died 2019), both died of ALS, and a longtime employee whose office sat one floor above them died of ALS in 2017. <a href="https://www.bostonglobe.com/metro/2020/02/04/illnesses-spark-concerns-about-workplace-hazards-springfield-courthouse/jjacviWxDEjj0zaPIYbeUP/story.html" target="_blank" rel="noopener noreferrer">(Boston Globe)</a> Mayor Domenic Sarno has stated publicly that five people who worked in the building have died of ALS and that 60 cancer cases have been linked to courthouse workers. <a href="https://www.springfield-ma.gov/cos/news-story?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=17235" target="_blank" rel="noopener noreferrer">(City of Springfield)</a> A 2021 class-action lawsuit alleged at least 25 former long-term employees had died of cancer; the building was later evaluated by NIOSH and the case was settled in 2022. <a href="https://www.bostonglobe.com/2021/09/04/metro/class-action-lawsuit-filed-over-long-troubled-springfield-courthouse/" target="_blank" rel="noopener noreferrer">(Boston Globe)</a> Independent testing conducted for a related lawsuit found toxic mold in the building's vents, walls, and carpeting. <a href="https://www.wamc.org/news/2022-03-16/federal-agencies-asked-to-investigate-conditions-at-state-courthouse-in-springfield" target="_blank" rel="noopener noreferrer">(WAMC)</a> An environmental consultant's testing did not identify a specific cause, and medical causation has not been established, but a Harvard environmental epidemiologist called the concentration of ALS cases in one building "suggestive of some environmental exposure." Every month spent in litigation over the replacement is another month Trial Court employees keep reporting to that building.</p>
+      <section class="delay-section">
+        <div class="wrap">
+          <div class="delay-top">
+            <div class="section-head">
+              <span class="eyebrow">The real choice</span>
+              <h2>Every month of delay has a cost.</h2>
+              <p>This isn't a choice between "fast" and "careful." A judge has already reviewed the process and found the challengers' core legal theory has no support. Continued litigation from the losing bidders doesn't add scrutiny the deal hasn't already survived. It risks the savings and schedule Hampden County was promised.</p>
+            </div>
+            <aside class="note">
+              <p><strong>The record is public:</strong> a competitive review, a signed evaluation, and a court ruling that already tested the objections raised against it and rejected them.</p>
+            </aside>
           </div>
-          <aside class="note">
-            <p><strong>The record is public:</strong> a competitive review, a signed evaluation, and a court ruling that already tested the objections raised against it and rejected them.</p>
-          </aside>
+
+          <h3 class="harm-title">And there's a human cost.</h3>
+          <p class="harm-lede">The current Hampden County courthouse (the Roderick Ireland Courthouse) has a documented history of serious employee illness.</p>
+          <div class="harm-grid">
+            <article class="harm-card">
+              <strong class="harm-stat">2 judges</strong>
+              <p>Two Springfield District Court judges who worked out of the same judicial chambers, Robert F. Kumor Jr. (died 2013) and William J. Boyle (died 2019), both died of ALS, and a longtime employee whose office sat one floor above them died of ALS in 2017.</p>
+              <span class="harm-src"><a href="https://www.bostonglobe.com/metro/2020/02/04/illnesses-spark-concerns-about-workplace-hazards-springfield-courthouse/jjacviWxDEjj0zaPIYbeUP/story.html" target="_blank" rel="noopener noreferrer">Boston Globe</a></span>
+            </article>
+            <article class="harm-card">
+              <strong class="harm-stat">5 ALS deaths</strong>
+              <p>Mayor Domenic Sarno has stated publicly that five people who worked in the building have died of ALS and that 60 cancer cases have been linked to courthouse workers.</p>
+              <span class="harm-src"><a href="https://www.springfield-ma.gov/cos/news-story?tx_news_pi1%5Baction%5D=detail&amp;tx_news_pi1%5Bcontroller%5D=News&amp;tx_news_pi1%5Bnews%5D=17235" target="_blank" rel="noopener noreferrer">City of Springfield</a></span>
+            </article>
+            <article class="harm-card">
+              <strong class="harm-stat">25+ claims</strong>
+              <p>A 2021 class-action lawsuit alleged at least 25 former long-term employees had died of cancer; the building was later evaluated by NIOSH and the case was settled in 2022.</p>
+              <span class="harm-src"><a href="https://www.bostonglobe.com/2021/09/04/metro/class-action-lawsuit-filed-over-long-troubled-springfield-courthouse/" target="_blank" rel="noopener noreferrer">Boston Globe</a></span>
+            </article>
+            <article class="harm-card">
+              <strong class="harm-stat">Toxic mold</strong>
+              <p>Independent testing conducted for a related lawsuit found toxic mold in the building's vents, walls, and carpeting.</p>
+              <span class="harm-src"><a href="https://www.wamc.org/news/2022-03-16/federal-agencies-asked-to-investigate-conditions-at-state-courthouse-in-springfield" target="_blank" rel="noopener noreferrer">WAMC</a></span>
+            </article>
+          </div>
+          <p class="harm-caveat">An environmental consultant's testing did not identify a specific cause, and medical causation has not been established, but a Harvard environmental epidemiologist called the concentration of ALS cases in one building "suggestive of some environmental exposure."</p>
+          <p class="harm-close">Every month spent in litigation over the replacement is another month Trial Court employees keep reporting to that building.</p>
         </div>
       </section>
     </section>
