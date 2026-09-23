@@ -171,6 +171,33 @@
     .form-box { padding: 30px; color: var(--ink); background: #fff; }
     .form-box h3 { margin-bottom: 12px; }
     .form-box p { margin: 0 0 19px; color: var(--muted); }
+    .send-box h3 { font-size: 1.55rem; }
+    .send-list { display: grid; gap: 10px; }
+    .send-btn { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 18px; background: var(--navy); color: #fff; text-decoration: none; border-left: 5px solid var(--gold); transition: background .18s ease, transform .18s ease; }
+    .send-btn span { font-weight: 800; line-height: 1.3; }
+    .send-btn small { flex-shrink: 0; color: #c8d9e3; font-size: .78rem; font-weight: 700; letter-spacing: .03em; }
+    .send-btn::after { content: "\2192"; color: var(--gold); font-weight: 900; }
+    .send-btn:hover, .send-btn:focus-visible { background: var(--navy2); transform: translateX(3px); }
+    .send-box .send-note { margin: 18px 0 0; font-size: .9rem; }
+    .send-box .send-note a { color: var(--navy2); font-weight: 800; }
+    .dir-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .dir-card { padding: 28px 30px; background: var(--paper); border-top: 5px solid var(--navy2); box-shadow: var(--shadow); }
+    .dir-card-wide { grid-column: 1 / -1; }
+    .dir-card h3 { margin: 0 0 14px; font-size: 1.35rem; }
+    .dir-card .dir-sub { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .c-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .c-list li { display: flex; flex-direction: column; gap: 2px; }
+    .c-list-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 26px; row-gap: 18px; margin-top: 16px; }
+    .c-name { font-weight: 800; color: var(--navy); }
+    .c-role { color: var(--muted); font-size: .88rem; }
+    .c-email { color: var(--blue); font-size: .92rem; font-weight: 700; overflow-wrap: anywhere; text-decoration: none; }
+    .c-email:hover { text-decoration: underline; }
+    .c-phone { color: var(--navy2); font-size: .92rem; font-weight: 700; text-decoration: none; }
+    .c-muted { color: var(--muted); font-size: .9rem; margin: 0; }
+    .c-muted a { color: var(--navy2); font-weight: 700; }
+    .dir-tip { margin-top: 20px; }
+    .dir-source { margin: 22px 0 0; color: var(--muted); font-size: .84rem; }
+    .dir-source a { color: var(--navy2); }
     label { display: block; margin: 11px 0 5px; color: var(--navy); font-size: .82rem; font-weight: 900; }
     input, textarea, select { width: 100%; border: 1px solid #cbd6da; background: #fff; color: var(--ink); padding: 12px; min-height: 47px; }
     textarea { min-height: 125px; resize: vertical; }
@@ -225,12 +252,15 @@
       .hero { padding: 75px 0 70px; }
       section { padding: 58px 0; }
       .cards, .questions, .split, .footer-grid, .quote-grid { grid-template-columns: 1fr; }
+      .dir-grid { grid-template-columns: 1fr; }
+      .c-list-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .delay-top, .harm-grid { grid-template-columns: 1fr; gap: 20px; }
       .delay-top .note { margin-top: 0; }
       .harm-title { margin-top: 48px; }
       .card, .question, .report { padding: 25px; }
       .page-hero { padding: 58px 0 49px; }
     }
+    @media (max-width: 620px) { .dir-grid .c-list-cols { grid-template-columns: 1fr; } .send-btn small { display: none; } .dir-card { padding: 24px 22px; } }
   </style>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -639,20 +669,77 @@
               <a class="button secondary" href="mailto:?subject=Finish%20the%20Hampden%20County%20Courthouse&body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction.">Email this message</a>
             </div>
           </div>
-          <aside class="form-box">
-            <h3>Submit a question</h3>
-            <p>Use this form to collect questions from residents. Connect it to your Squarespace form storage, Formspree, Google Forms, or email platform before publishing.</p>
-            <form id="questionForm">
-              <label for="questionName">Name</label>
-              <input id="questionName" type="text" placeholder="Your name">
-              <label for="questionEmail">Email address</label>
-              <input id="questionEmail" type="email" placeholder="you@example.com" required>
-              <label for="questionText">Your question</label>
-              <textarea id="questionText" placeholder="What should be addressed in the public record?"></textarea>
-              <button class="button red" type="submit" style="width:100%; margin-top:14px; border:0">Submit question</button>
-              <div class="form-message" id="questionMessage">Thank you. This demo form is ready to connect to your preferred form service.</div>
-            </form>
+          <aside class="form-box send-box">
+            <h3>Send it to decision-makers</h3>
+            <p>Each button opens your email app with the message above already filled in and the right people in the To line. Add your name and neighborhood before you hit send.</p>
+            <div class="send-list">
+              <a class="send-btn" href="mailto:dsarno@springfieldcityhall.com?subject=Build%20the%20new%20Springfield%20courthouse.%20Stop%20the%20delay.&amp;body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction."><span>Mayor Domenic Sarno</span><small>1 recipient</small></a>
+              <a class="send-btn" href="mailto:twhitfield@springfieldcityhall.com,jdelgado@springfieldcityhall.com,jhurst@springfieldcityhall.com,kwalsh@springfieldcityhall.com,bsantaniello@springfieldcityhall.com,mariaperezcitycouncil@gmail.com,mfenton@springfieldcityhall.com,melvinspeaks@msn.com,malomiajane@yahoo.com,lclick-bruce@springfieldcityhall.com,vdavila@springfieldcityhall.com,gmartin@springfieldcityhall.com,zaida.govan@yahoo.com?subject=Build%20the%20new%20Springfield%20courthouse.%20Stop%20the%20delay.&amp;body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction."><span>Springfield City Council</span><small>All 13 councilors</small></a>
+              <a class="send-btn" href="mailto:Orlando.Ramos@mahouse.gov,Carlos.Gonzalez@mahouse.gov,Bud.Williams@mahouse.gov,Angelo.Puppolo@mahouse.gov,Adam.Gomez@masenate.gov,Jacob.Oliveira@masenate.gov?subject=Build%20the%20new%20Springfield%20courthouse.%20Stop%20the%20delay.&amp;body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction."><span>Springfield's State House delegation</span><small>4 representatives, 2 senators</small></a>
+              <a class="send-btn" href="mailto:srjc.dcamm@mass.gov?subject=Build%20the%20new%20Springfield%20courthouse.%20Stop%20the%20delay.&amp;body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction."><span>The courthouse project (DCAMM)</span><small>Official project inbox</small></a>
+            </div>
+            <p class="send-note">District Attorney Anthony Gulluni's office does not publish an email address. Call <a href="tel:+14137471000">(413) 747-1000</a>. Full directory below.</p>
           </aside>
+        </div>
+      </section>
+      <section class="directory-section" id="contact-officials">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Who to contact</span>
+            <h2>The people who can keep this project moving.</h2>
+            <p>Every address below is published by the official's own office. A short, personal note in your own words, with your neighborhood, carries the most weight.</p>
+          </div>
+          <div class="dir-grid">
+            <div class="dir-card">
+              <h3>Mayor of Springfield</h3>
+              <ul class="c-list">
+                <li><span class="c-name">Mayor Domenic J. Sarno</span><span class="c-role">Office of the Mayor, 36 Court Street</span><a class="c-email" href="mailto:dsarno@springfieldcityhall.com">dsarno@springfieldcityhall.com</a><a class="c-phone" href="tel:+14137876100">(413) 787-6100</a></li>
+              </ul>
+              <h3 class="dir-sub">District Attorney</h3>
+              <ul class="c-list">
+                <li><span class="c-name">DA Anthony D. Gulluni</span><span class="c-role">Hampden District Attorney's Office, 1500 Main Street</span><span class="c-muted">No public email</span><a class="c-phone" href="tel:+14137471000">(413) 747-1000</a></li>
+              </ul>
+              <h3 class="dir-sub">The courthouse project</h3>
+              <ul class="c-list">
+                <li><span class="c-name">DCAMM Office of Leasing</span><span class="c-role">Springfield Regional Justice Center</span><a class="c-email" href="mailto:srjc.dcamm@mass.gov">srjc.dcamm@mass.gov</a></li>
+              </ul>
+            </div>
+            <div class="dir-card">
+              <h3>State Representatives</h3>
+              <ul class="c-list">
+              <li><span class="c-name">Rep. Orlando Ramos</span><span class="c-role">9th Hampden</span><a class="c-email" href="mailto:Orlando.Ramos@mahouse.gov">Orlando.Ramos@mahouse.gov</a></li>
+              <li><span class="c-name">Rep. Carlos González</span><span class="c-role">10th Hampden</span><a class="c-email" href="mailto:Carlos.Gonzalez@mahouse.gov">Carlos.Gonzalez@mahouse.gov</a></li>
+              <li><span class="c-name">Rep. Bud L. Williams</span><span class="c-role">11th Hampden</span><a class="c-email" href="mailto:Bud.Williams@mahouse.gov">Bud.Williams@mahouse.gov</a></li>
+              <li><span class="c-name">Rep. Angelo J. Puppolo, Jr.</span><span class="c-role">12th Hampden</span><a class="c-email" href="mailto:Angelo.Puppolo@mahouse.gov">Angelo.Puppolo@mahouse.gov</a></li>
+              </ul>
+              <h3 class="dir-sub">State Senators</h3>
+              <ul class="c-list">
+              <li><span class="c-name">Sen. Adam Gómez</span><span class="c-role">Hampden District</span><a class="c-email" href="mailto:Adam.Gomez@masenate.gov">Adam.Gomez@masenate.gov</a></li>
+              <li><span class="c-name">Sen. Jacob R. Oliveira</span><span class="c-role">Hampden, Hampshire &amp; Worcester</span><a class="c-email" href="mailto:Jacob.Oliveira@masenate.gov">Jacob.Oliveira@masenate.gov</a></li>
+              </ul>
+              <p class="c-muted dir-tip">Not sure which district you're in? <a href="https://malegislature.gov/Search/FindMyLegislator" target="_blank" rel="noopener noreferrer">Find your legislator</a>.</p>
+            </div>
+            <div class="dir-card dir-card-wide">
+              <h3>Springfield City Council</h3>
+              <p class="c-muted">Council office: 36 Court Street, Room 200 · <a href="tel:+14137876170">(413) 787-6170</a></p>
+              <ul class="c-list c-list-cols">
+              <li><span class="c-name">Tracye Whitfield</span><span class="c-role">At-Large, Council President</span><a class="c-email" href="mailto:twhitfield@springfieldcityhall.com">twhitfield@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Jose M. Delgado</span><span class="c-role">At-Large, Vice President</span><a class="c-email" href="mailto:jdelgado@springfieldcityhall.com">jdelgado@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Justin J. Hurst</span><span class="c-role">At-Large</span><a class="c-email" href="mailto:jhurst@springfieldcityhall.com">jhurst@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Kateri B. Walsh</span><span class="c-role">At-Large</span><a class="c-email" href="mailto:kwalsh@springfieldcityhall.com">kwalsh@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Brian Santaniello</span><span class="c-role">At-Large</span><a class="c-email" href="mailto:bsantaniello@springfieldcityhall.com">bsantaniello@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Maria E. Perez</span><span class="c-role">Ward 1</span><a class="c-email" href="mailto:mariaperezcitycouncil@gmail.com">mariaperezcitycouncil@gmail.com</a></li>
+              <li><span class="c-name">Michael A. Fenton</span><span class="c-role">Ward 2</span><a class="c-email" href="mailto:mfenton@springfieldcityhall.com">mfenton@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Melvin A. Edwards</span><span class="c-role">Ward 3</span><a class="c-email" href="mailto:melvinspeaks@msn.com">melvinspeaks@msn.com</a></li>
+              <li><span class="c-name">Malo L. Brown</span><span class="c-role">Ward 4</span><a class="c-email" href="mailto:malomiajane@yahoo.com">malomiajane@yahoo.com</a></li>
+              <li><span class="c-name">Lavar W. Click-Bruce</span><span class="c-role">Ward 5</span><a class="c-email" href="mailto:lclick-bruce@springfieldcityhall.com">lclick-bruce@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Victor G. Davila</span><span class="c-role">Ward 6</span><a class="c-email" href="mailto:vdavila@springfieldcityhall.com">vdavila@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Gerry J. Martin</span><span class="c-role">Ward 7</span><a class="c-email" href="mailto:gmartin@springfieldcityhall.com">gmartin@springfieldcityhall.com</a></li>
+              <li><span class="c-name">Zaida Govan</span><span class="c-role">Ward 8</span><a class="c-email" href="mailto:zaida.govan@yahoo.com">zaida.govan@yahoo.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <p class="dir-source">Sources: <a href="https://www.springfield-ma.gov/cos/city-council-members" target="_blank" rel="noopener noreferrer">City of Springfield</a>, <a href="https://malegislature.gov/" target="_blank" rel="noopener noreferrer">Massachusetts Legislature</a>, <a href="https://hampdenda.com/district-attorney-office-locations/" target="_blank" rel="noopener noreferrer">Hampden DA</a>, <a href="https://www.mass.gov/info-details/springfield-regional-justice-center-project" target="_blank" rel="noopener noreferrer">DCAMM</a>. Verified September 2026.</p>
         </div>
       </section>
       <section>
@@ -729,11 +816,6 @@
     document.getElementById('signupForm').addEventListener('submit', event => {
       event.preventDefault();
       document.getElementById('signupMessage').style.display = 'block';
-    });
-
-    document.getElementById('questionForm').addEventListener('submit', event => {
-      event.preventDefault();
-      document.getElementById('questionMessage').style.display = 'block';
     });
 
     document.getElementById('copyMessage').addEventListener('click', async () => {
