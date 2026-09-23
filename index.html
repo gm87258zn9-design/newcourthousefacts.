@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A public-information site explaining why the Liberty Junction courthouse deal is the best outcome for Hampden County taxpayers, and why a court already rejected the losing bidders' attempt to block it.">
+  <title>Finish the Hampden County Courthouse | Support the Liberty Junction Deal</title>
+  <style>
+    :root {
+      --ink: #12212b;
+      --navy: #082d49;
+      --navy2: #0e456d;
+      --blue: #1d6fa5;
+      --gold: #efb545;
+      --cream: #f6f3ed;
+      --paper: #ffffff;
+      --mist: #eaf0f2;
+      --muted: #53646e;
+      --line: #d5dfe3;
+      --red: #a93833;
+      --green: #1c714f;
+      --max: 1180px;
+      --shadow: 0 14px 40px rgba(12, 40, 58, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: Arial, Helvetica, sans-serif; line-height: 1.58; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--gold); color: var(--navy); padding: 10px 14px; font-weight: 800; }
+    .skip:focus { left: 10px; top: 10px; }
+
+    .utility { background: #061c2d; color: #d6e0e5; font-size: .79rem; }
+    .utility .wrap { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .utility a { color: var(--gold); font-weight: 800; }
+
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+    .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; background: var(--navy); color: var(--gold); border: 2px solid var(--gold); font-family: Georgia, serif; font-size: 1.45rem; font-weight: 900; }
+    .brand-text { color: var(--navy); font-size: .86rem; font-weight: 900; line-height: 1.06; letter-spacing: .045em; text-transform: uppercase; }
+    .brand-text span { display: block; color: var(--red); font-size: .67rem; letter-spacing: .12em; margin-top: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--navy); font-size: .87rem; font-weight: 800; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    .nav-cta { padding: 10px 13px; background: var(--red); color: #fff !important; text-transform: uppercase; font-size: .76rem; letter-spacing: .05em; }
+    .menu-button { display: none; border: 1px solid var(--line); background: #fff; color: var(--navy); padding: 9px 11px; font-weight: 800; cursor: pointer; }
+
+    main { min-height: 70vh; }
+    .page { display: none; }
+    .page.active { display: block; animation: fade .25s ease; }
+    @keyframes fade { from { opacity: .25; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .hero { color: #fff; background: #051f32; padding: 92px 0 92px; overflow: hidden; position: relative; }
+    .hero::after { content: ""; position: absolute; right: -170px; bottom: -185px; width: 590px; height: 590px; border: 85px solid rgba(239,181,69,.12); border-radius: 50%; z-index: 1; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,16,28,.84) 0%, rgba(4,16,28,.62) 46%, rgba(4,16,28,.24) 100%), linear-gradient(to top, rgba(4,16,28,.88) 0%, rgba(4,16,28,.45) 45%, rgba(4,16,28,.3) 100%); z-index: 0; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); align-items: end; gap: 55px; }
+    .stats-band { background: var(--navy); color: #fff; padding: 52px 0 58px; }
+    .stats-lede { margin: 0 0 36px; max-width: 26ch; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 3.5vw, 2.85rem); font-weight: 700; line-height: 1.12; letter-spacing: -.035em; color: #fff; }
+    .stats-lede strong { color: var(--gold); font-weight: 700; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .kpi { padding: 4px 0 4px 20px; border-left: 5px solid var(--gold); }
+    .kpi strong { display: block; font-size: clamp(2.1rem, 3.7vw, 2.9rem); color: var(--gold); font-weight: 900; line-height: 1; }
+    .kpi span { display: block; margin-top: 11px; color: #dbe7ed; font-size: .93rem; font-weight: 600; line-height: 1.52; }
+    .kpi a { color: var(--gold); }
+    @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+    .eyebrow { display: inline-block; margin-bottom: 16px; color: var(--gold); font-size: .78rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .hero h1 { max-width: 15ch; font-size: clamp(2.3rem, 4.3vw, 4rem); text-shadow: 0 3px 22px rgba(0,0,0,.7); }
+    .hero .eyebrow { text-shadow: 0 2px 12px rgba(0,0,0,.6); }
+    h1, h2, h3, h4 { margin: 0; line-height: 1.06; }
+    h1, h2 { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
+    h1 { max-width: 880px; font-size: clamp(3.05rem, 6.6vw, 6.3rem); }
+    h2 { font-size: clamp(2.2rem, 4.1vw, 4rem); color: var(--navy); }
+    h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; color: var(--navy); }
+    .hero-copy { max-width: 740px; margin: 27px 0 31px; color: #e7f1f6; font-size: clamp(1.1rem, 1.8vw, 1.31rem); text-shadow: 0 2px 14px rgba(0,0,0,.6); }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { min-height: 48px; padding: 13px 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; font-size: .83rem; font-weight: 900; letter-spacing: .045em; text-transform: uppercase; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .primary { background: var(--gold); color: var(--navy); }
+    .secondary { border-color: rgba(255,255,255,.68); color: #fff; }
+    .outline { border-color: var(--navy); color: var(--navy); background: transparent; }
+    .red { background: var(--red); color: #fff; }
+    .hero-stat { padding: 26px; background: rgba(6,22,38,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-left: 5px solid var(--gold); box-shadow: 0 12px 34px rgba(0,0,0,.35); }
+    .hero-stat strong { display: block; font-size: 2.7rem; color: var(--gold); line-height: 1; }
+    .hero-stat span { display: block; margin-top: 8px; color: #d4e2e9; font-size: .92rem; font-weight: 700; }
+
+    .ticker { color: var(--navy); background: var(--gold); text-align: center; padding: 23px 18px; font-size: clamp(1.15rem, 2.3vw, 1.64rem); font-weight: 900; line-height: 1.25; }
+    section { padding: 78px 0; }
+    .section-head { max-width: 800px; margin-bottom: 37px; }
+    .section-head p { margin: 17px 0 0; color: var(--muted); font-size: 1.1rem; }
+    .section-head .eyebrow { color: var(--red); }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+    .card { padding: 29px; background: var(--paper); border-top: 5px solid var(--navy2); box-shadow: var(--shadow); }
+    .card h3 { margin-bottom: 13px; }
+    .card p { color: var(--muted); margin: 0; }
+    .card .num { display: block; margin-bottom: 18px; color: var(--gold); font-size: 2rem; font-weight: 900; line-height: 1; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .note { padding: 34px; background: var(--mist); border-left: 6px solid var(--gold); }
+    .note p { margin: 0; font-size: 1.17rem; color: var(--navy); }
+    .note strong { color: var(--red); }
+    .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .quote-card { padding: 28px; background: var(--paper); border-left: 5px solid var(--gold); box-shadow: var(--shadow); }
+    .quote-card .quote-text { margin: 0 0 14px; font-size: 1.05rem; color: var(--navy); font-style: italic; }
+    .quote-card .quote-attr { margin: 0; font-weight: 900; color: var(--navy2); font-size: .92rem; }
+    .placeholder-note { padding: 20px 26px; background: var(--mist); border: 1px dashed var(--muted); color: var(--muted); font-size: .95rem; }
+
+    .dark { background: var(--navy); color: #fff; }
+    .dark h2, .dark h3 { color: #fff; }
+    .dark .section-head p { color: #c8d9e3; }
+    .dark .section-head .eyebrow { color: var(--gold); }
+    .table-wrap { overflow-x: auto; background: #fff; }
+    table { width: 100%; min-width: 780px; border-collapse: collapse; color: var(--ink); }
+    th, td { padding: 20px 22px; vertical-align: top; text-align: left; border-bottom: 1px solid var(--line); }
+    th { color: #fff; background: var(--navy2); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; }
+    td:first-child { width: 35%; color: var(--navy); font-weight: 900; }
+
+    .timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+    .timeline::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: 13px; width: 2px; background: var(--line); }
+    .timeline li { position: relative; padding: 0 0 30px 49px; max-width: 900px; }
+    .timeline li::before { content: ""; position: absolute; z-index: 1; left: 5px; top: 6px; width: 14px; height: 14px; background: var(--gold); border: 3px solid var(--navy); border-radius: 50%; }
+    .timeline .date { color: var(--red); font-size: .79rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .timeline h3 { margin: 4px 0 9px; font-size: 1.4rem; }
+    .timeline p { margin: 0; color: var(--muted); }
+
+    .questions { counter-reset: question; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .question { position: relative; min-height: 244px; padding: 72px 27px 27px; background: var(--paper); border: 1px solid var(--line); }
+    .question::before { counter-increment: question; content: "0" counter(question); position: absolute; top: 23px; left: 26px; color: var(--gold); font-size: 1.65rem; font-weight: 900; line-height: 1; }
+    .question h3 { margin-bottom: 11px; font-size: 1.23rem; }
+    .question p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .report { background: #fff; border: 1px solid var(--line); padding: 27px; display: flex; flex-direction: column; justify-content: space-between; min-height: 250px; }
+    .report .tag { color: var(--red); font-size: .72rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+    .report h3 { margin: 14px 0; }
+    .report p { margin: 0 0 22px; color: var(--muted); font-size: .93rem; }
+    .report a { color: var(--navy2); font-weight: 900; font-size: .84rem; text-transform: uppercase; letter-spacing: .04em; }
+
+    .faq { display: grid; gap: 10px; }
+    .faq details { background: #fff; border: 1px solid var(--line); }
+    .faq summary { padding: 20px 50px 20px 21px; cursor: pointer; color: var(--navy); font-weight: 900; position: relative; list-style: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 20px; top: 12px; color: var(--red); font-size: 1.8rem; font-weight: 400; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq .answer { padding: 0 21px 20px; color: var(--muted); }
+    .faq .answer p { margin: 0; }
+
+    .action-section { background: var(--red); color: #fff; }
+    .action-section h2 { color: #fff; }
+    .action-section .section-head p { color: #ffe9e7; }
+    .action-section .eyebrow { color: var(--gold); }
+    .action-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 47px; align-items: start; }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { position: relative; padding: 14px 0 14px 31px; border-bottom: 1px solid rgba(255,255,255,.23); }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+    .form-box { padding: 30px; color: var(--ink); background: #fff; }
+    .form-box h3 { margin-bottom: 12px; }
+    .form-box p { margin: 0 0 19px; color: var(--muted); }
+    label { display: block; margin: 11px 0 5px; color: var(--navy); font-size: .82rem; font-weight: 900; }
+    input, textarea, select { width: 100%; border: 1px solid #cbd6da; background: #fff; color: var(--ink); padding: 12px; min-height: 47px; }
+    textarea { min-height: 125px; resize: vertical; }
+    .form-message { display: none; margin-top: 14px; padding: 12px; color: #0f573a; background: #e4f5ec; font-weight: 700; font-size: .91rem; }
+
+    .page-hero { padding: 72px 0 61px; color: #fff; background: linear-gradient(120deg, #092f4b, #155a87); }
+    .page-hero h1 { max-width: 800px; font-size: clamp(2.8rem, 6vw, 5.2rem); }
+    .page-hero p { max-width: 740px; margin: 22px 0 0; color: #e2edf3; font-size: 1.18rem; }
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 50px; align-items: start; }
+    .sidebox { padding: 26px; background: var(--mist); border-top: 5px solid var(--gold); }
+    .sidebox h3 { margin-bottom: 12px; }
+    .sidebox p { color: var(--muted); font-size: .94rem; }
+    .sidebox ul { padding-left: 18px; color: var(--muted); font-size: .93rem; }
+    .prose h2 { margin: 0 0 14px; font-size: 2.25rem; }
+    .prose h3 { margin: 31px 0 10px; }
+    .prose p { color: var(--muted); margin: 0 0 18px; }
+    .prose ul { margin: 0 0 22px; color: var(--muted); padding-left: 20px; }
+    .prose li { margin-bottom: 7px; }
+    .callout { margin: 30px 0; padding: 27px; background: #fff8df; border-left: 5px solid var(--gold); color: var(--navy); font-weight: 700; }
+
+    .disclaimer { background: #fff7df; border-top: 1px solid #edd89b; border-bottom: 1px solid #edd89b; padding: 18px 0; }
+    .disclaimer p { margin: 0; color: #5d4b18; font-size: .86rem; }
+    footer { padding: 38px 0; color: #c3d0d7; background: #061c2d; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 35px; }
+    footer h3 { color: #fff; font-family: Arial, sans-serif; font-size: .88rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+    footer p, footer li { color: #b6c7d0; font-size: .86rem; }
+    footer p { margin: 0; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer li { margin: 7px 0; }
+    footer a:hover { color: var(--gold); }
+    .copyright { margin-top: 31px; padding-top: 17px; border-top: 1px solid rgba(255,255,255,.14); font-size: .76rem; color: #91a7b2; }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; position: absolute; top: 78px; left: 0; right: 0; padding: 14px 20px 22px; flex-direction: column; align-items: stretch; gap: 0; background: #fff; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-cta { text-align: center; margin-top: 9px; }
+      .menu-button { display: block; }
+      .hero-grid, .action-grid, .content-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr; gap: 24px; }
+      .stats-band { padding: 40px 0 44px; }
+      .hero-stat { max-width: 390px; }
+      .cards, .questions { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+      .utility .wrap { padding: 7px 0; display: block; }
+      .utility span { display: block; margin-bottom: 3px; }
+      .brand { min-width: 0; }
+      .brand-text { font-size: .75rem; }
+      .hero { padding: 75px 0 70px; }
+      section { padding: 58px 0; }
+      .cards, .questions, .split, .footer-grid, .quote-grid { grid-template-columns: 1fr; }
+      .card, .question, .report { padding: 25px; }
+      .page-hero { padding: 58px 0 49px; }
+    }
+  </style>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="utility">
+    <div class="wrap">
+      <span>Public-information site supporting the new Hampden County Courthouse (the Springfield Regional Justice Center) project.</span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="wrap nav" aria-label="Primary navigation">
+      <a class="brand" href="#home" data-page="home" aria-label="Finish the Hampden County Courthouse home">
+        <span class="brand-mark">&#10003;</span>
+        <span class="brand-text">Finish the Hampden<br>County Courthouse<span>Hampden County, Massachusetts</span></span>
+      </a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" data-page="home">Home</a>
+        <a href="#the-deal" data-page="the-deal">The Deal</a>
+        <a href="#documents" data-page="documents">Documents</a>
+        <a href="#about" data-page="about">About</a>
+        <a href="#support" data-page="support">Support</a>
+        <a class="nav-cta" href="#take-action" data-page="take-action">Take action</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page active" id="home" aria-labelledby="home-title">
+      <div class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/courthouse-rendering-front-entry.jpg" aria-hidden="true">
+          <source data-src-desktop="video/hero-flythrough.mp4" data-src-mobile="video/mobile-hero-flythrough.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="wrap hero-grid">
+          <div>
+            <span class="eyebrow">The New Springfield Regional Justice Center</span>
+            <h1 id="home-title">A new courthouse. A new neighborhood.<br>A new chapter for Springfield.</h1>
+            <p class="hero-copy">Liberty Junction's proposal for the new Springfield Regional Justice Center delivers a safer place to work, the greatest taxpayer value, and lasting growth for the North End and Springfield's economy. The proposal prioritizes site accessibility, inclusive design practices, and the expansion of opportunities for local and minority-owned businesses to meaningfully engage in the project.</p>
+            <div class="buttons">
+              <a class="button primary" href="#the-deal" data-page="the-deal">See the facts</a>
+              <a class="button secondary" href="#take-action" data-page="take-action">Tell officials to finish the job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker">The new Springfield Regional Justice Center is finally being built, and it's long overdue.</div>
+
+      <section class="stats-band" aria-label="Project by the numbers">
+        <div class="wrap">
+          <p class="stats-lede">A <strong>$2 billion</strong> investment in Springfield to revitalize a neighborhood.</p>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <strong>$400M+</strong>
+              <span>Projected taxpayer savings compared with the losing bid, according to arguments presented in Hampden County Superior Court. <a href="https://www.westernmassnews.com/2026/08/11/judge-hears-arguments-over-who-will-build-springfields-2-billion-courthouse/" target="_blank" rel="noopener noreferrer">(Western Mass News, Aug. 11, 2026)</a></span>
+            </div>
+            <div class="kpi">
+              <strong>2,000+</strong>
+              <span>Construction jobs the Project Labor Agreement with the Western Mass Building Trades Union is expected to support. <a href="https://www.wwlp.com/news/local-news/hampden-county/project-labor-agreement-signed-for-new-springfield-regional-justice-center/" target="_blank" rel="noopener noreferrer">(WWLP, Sept. 16, 2026)</a></span>
+            </div>
+            <div class="kpi">
+              <strong>5</strong>
+              <span>ALS deaths, along with 60 cancer cases, identified among workers at the current Roderick L. Ireland Courthouse. <a href="https://www.masslive.com/news/2022/03/5-als-deaths-60-cancer-cases-identified-among-workers-at-troubled-roderick-ireland-courthouse-in-springfield.html" target="_blank" rel="noopener noreferrer">(MassLive, March 2022)</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px">For more than 50 years, thousands of people have worked and attended trials in the old courthouse under conditions nobody should face, and many have become sick or died as a result. The new courthouse has been delayed for too long, and for all the wrong reasons.</p>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px; margin-top:18px">Today, Springfield has the right plan, an experienced team, and a bright future for the neighborhood. The courthouse will ensure “Access for All” to every Hampden County resident and will serve as a catalyst for meaningful progress in Springfield for years to come.</p>
+          <figure style="margin:0 0 37px 0">
+            <img src="images/courthouse-rendering-front-entry.jpg" alt="Architectural rendering of the new Springfield Regional Justice Center at 125 Liberty Street, showing the main entrance and public plaza" style="width:100%; height:auto; display:block; border:1px solid var(--line)">
+            <figcaption style="margin-top:10px; font-size:.85rem; color:var(--muted)">Rendering of the new Springfield Regional Justice Center at 125 Liberty Street. Courtesy of Liberty Junction.</figcaption>
+          </figure>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px; margin-top:18px">The new Springfield Regional Justice Center will be a modern, six-story courthouse at 125 Liberty Street in downtown Springfield. The building will house the Trial Court, Hampden Superior Court, Family and Probate Court, District Attorney's office, Register of Probate, Registry of Deeds, and Clerk of Courts. The design brings daylight throughout the building and into every courtroom, and creates a safe, accessible environment for everyone who works in or visits the facility. The site is within walking distance of public transit at Union Station and ensures access to the facility from all areas of Hampden County.</p>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px; margin-top:18px">The new courthouse will bring jobs and activity to the neighborhood, creating a center of economic development that will help revitalize this part of Springfield. Building the Springfield Regional Justice Center will create approximately 2,000–2,500 construction jobs and generate additional opportunities for community participation.</p>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px; margin-top:18px">When the Springfield Regional Justice Center is complete, it will serve as a hub for civic services and strengthen the neighborhood. The activity this project generates will attract more people to the surrounding businesses and create opportunities for long-term economic growth in the area.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Benefits</span>
+            <h2>A healthy new courthouse for Hampden County is finally underway.</h2>
+          </div>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px">The new courthouse will drive economic development in Springfield, bringing jobs and activity to the neighborhood. Construction alone will support 2,000–2,500 jobs.</p>
+          <p style="color:var(--muted); font-size:1.05rem; max-width:800px; margin-top:18px">An experienced team of developers, architects, and builders is behind the project, and they are ready to deliver a safe and efficient courthouse for Springfield as quickly as possible. Liberty Junction's proposal offers the fastest and most realistic schedule for the new courthouse. Liberty Junction's plan saves taxpayers at least $600,000 a month compared to the other proposed projects. It is the lowest-cost option by hundreds of millions of dollars over the 40-year lease period. <a href="https://www.mass.gov/info-details/springfield-regional-justice-center-project" target="_blank" rel="noopener noreferrer">(DCAMM)</a></p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap split">
+          <div class="section-head" style="margin-bottom:0">
+            <span class="eyebrow">The cost of delay</span>
+            <h2>Every day of delay has a cost.</h2>
+            <p>Residents, court employees, and everyone who relies on the courthouse cannot afford more delay while the current building continues to make people sick.</p>
+            <p>Five ALS deaths and 60 cancer diagnoses have been linked to the current courthouse, and toxic mold remains in the building today. <a href="https://www.masslive.com/news/2022/03/5-als-deaths-60-cancer-cases-identified-among-workers-at-troubled-roderick-ireland-courthouse-in-springfield.html" target="_blank" rel="noopener noreferrer">(MassLive)</a> <a href="https://www.wamc.org/news/2022-03-16/federal-agencies-asked-to-investigate-conditions-at-state-courthouse-in-springfield" target="_blank" rel="noopener noreferrer">(WAMC)</a> Hampden County has waited decades for a safe, healthy place to work. Every further delay puts more people at risk.</p>
+          </div>
+          <aside class="note" style="align-self:start">
+            <p><strong>Five ALS deaths. 60 cancer diagnoses.</strong> Linked to the building Hampden County's courts still occupy today.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="dark">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Myths vs. Facts</span>
+            <h2>What the record shows</h2>
+            <p>Opponents of the project claim this isn't the best courthouse for Springfield. The record shows otherwise:</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Myth</th><th>Fact</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>“Starting over helps the public.”</td><td>Delay is costing people their health and their lives. Five ALS deaths and 60 cancer cases have been linked to the existing courthouse, and a new building is long overdue. <a href="https://www.masslive.com/news/2022/03/5-als-deaths-60-cancer-cases-identified-among-workers-at-troubled-roderick-ireland-courthouse-in-springfield.html" target="_blank" rel="noopener noreferrer">(MassLive)</a></td></tr>
+                <tr><td>“This wasn't a fair process.”</td><td>Attorney General Andrea Campbell has moved to dismiss the underlying case, calling the plaintiffs' legal claims and theories “incorrect and inapplicable.” <a href="https://www.wwlp.com/news/local-news/hampden-county/developers-appeal-refusal-to-pause-2-billion-springfield-regional-justice-center-deal/" target="_blank" rel="noopener noreferrer">(WWLP)</a></td></tr>
+                <tr><td>“There was a conflict of interest.”</td><td>Judge David Hodge ruled there was “no legal or logical support” for that theory, and found DCAMM is not a state employee and is not subject to the conflict-of-interest law the plaintiffs cited. <a href="https://www.bostonherald.com/2026/08/25/judge-rules-in-favor-of-2b-state-contract-awarded-to-political-heavyweights-denies-injunction-request/" target="_blank" rel="noopener noreferrer">(Boston Herald)</a> The court also found no evidence that the procurement was improperly influenced. <a href="https://www.bostonherald.com/2026/08/25/judge-rules-in-favor-of-2b-state-contract-awarded-to-political-heavyweights-denies-injunction-request/" target="_blank" rel="noopener noreferrer">(Boston Herald)</a></td></tr>
+                <tr><td>“This isn't the best deal for taxpayers.”</td><td>State officials say the selected proposal saves taxpayers $400 million or more; the judge found its total occupancy cost $7.4 million lower than the next-closest finalist. <a href="https://www.westernmassnews.com/2026/08/11/judge-hears-arguments-over-who-will-build-springfields-2-billion-courthouse/" target="_blank" rel="noopener noreferrer">(Western Mass News)</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="action-section">
+        <div class="wrap action-grid">
+          <div>
+            <div class="section-head">
+              <span class="eyebrow">Take action</span>
+              <h2>Tell officials it's time to build.</h2>
+              <p>Ask decision-makers to uphold the procurement decision, respect the court's ruling, and move forward without further delay.</p>
+            </div>
+            <ul class="checklist">
+              <li>Uphold the DCAMM procurement decision and the Hampden County Superior Court's ruling</li>
+              <li>Move forward with the Liberty Junction lease without further delay</li>
+              <li>Protect the $400 million+ in projected taxpayer savings</li>
+              <li>Reject further delay tactics from the unsuccessful bidders</li>
+              <li>Prioritize Trial Court employees and court users who need a safe, modern facility now</li>
+              <li>Keep the public record on the litigation open and easy to follow</li>
+            </ul>
+          </div>
+          <aside class="form-box">
+            <h3>Join the updates list</h3>
+            <p>Get notified as the appeal, the motion to dismiss, and the construction timeline move forward.</p>
+            <form id="signupForm">
+              <label for="signupName">Name</label>
+              <input id="signupName" name="name" type="text" autocomplete="name" placeholder="Your name">
+              <label for="signupEmail">Email address</label>
+              <input id="signupEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <button class="button red" type="submit" style="width:100%; margin-top:14px; border:0">Join the list</button>
+              <div class="form-message" id="signupMessage">Thank you. This demo form is ready to connect to your email platform.</div>
+            </form>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="the-deal" aria-labelledby="deal-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">The deal</span>
+          <h1 id="deal-title">A competitively reviewed deal that saves taxpayers hundreds of millions.</h1>
+          <p>DCAMM selected Liberty Junction's proposal for the Hampden County Courthouse after evaluating multiple bidders. State officials, and now a Hampden County judge, have found the deal delivers real value, and found no merit in the losing bidders' legal challenge.</p>
+        </div>
+      </div>
+      <section>
+        <div class="wrap content-grid">
+          <article class="prose">
+            <h2>What is at stake</h2>
+            <p>Hampden County's Trial Court employees, litigants, and the public are currently served by an aging courthouse. The new Hampden County Courthouse at 125 Liberty Street is intended to replace it with a modern, safe, accessible facility. Every additional month of litigation is a month those needs go unmet.</p>
+            <p>Liberty Junction's proposal was selected through DCAMM's procurement process. The company includes CoJo Partners and other development partners.</p>
+            <div class="callout">"There is no legal or logical support for the plaintiffs' convoluted theory that DCAMM somehow violated [the conflict-of-interest law] in the procurement process." Hampden County Superior Court Justice David Hodge, August 24, 2026 ruling.</div>
+            <h3>What the review found</h3>
+            <p>Arguments presented in Hampden County Superior Court put the value of the selected proposal at $400 million or more in taxpayer savings compared with the losing bid. Justice Hodge's ruling separately found that Liberty Junction's total estimated cost of occupancy is $7.4 million lower than the next-closest finalist, and that the deal saves the Commonwealth roughly $600,000 per month compared with other proposals.</p>
+            <h3>What the court decided</h3>
+            <p>On August 24, 2026, Justice Hodge denied Balise and Patel's motions for a temporary restraining order and a preliminary injunction in a 29-page ruling. He found the plaintiffs had not shown a likelihood of success on the merits of their conflict-of-interest claim, and that DCAMM, not being a state employee, is not subject to the conflict-of-interest law the plaintiffs cited. The ruling did not dismiss the underlying case, and Balise and Patel have since filed a notice of appeal. The Massachusetts Attorney General has moved to dismiss the case entirely, calling the plaintiffs' legal theories "incorrect and inapplicable."</p>
+            <h3>Who is challenging the deal, and why</h3>
+            <p>The lawsuit was filed on July 9, 2026 by USPB JV, LLC, owned by New England used-car dealer Jeb Balise, and Springfield Tower Square LLC, owned by real-estate investor Dinesh Patel. Both entities submitted losing bids for the same courthouse contract that Liberty Junction won. Liberty Junction has described their suit as an attempt "to delay the project and recoup a lost bid." Co-founder Richard Mann said at the August 11 hearing: "Jeb Balise intends to stall that process."</p>
+            <h3>Every delay has a cost</h3>
+            <p>Liberty Junction has urged "the competitors to think of Hampden County residents and courthouse workers" and stop what it called "baseless legal delay tactics." A pending appeal and the Attorney General's motion to dismiss mean the case is not yet fully resolved. But the trial court's initial review has already tested the plaintiffs' central claims and found them unsupported.</p>
+          </article>
+          <aside class="sidebox">
+            <h3>Key facts</h3>
+            <ul>
+              <li>$400M+ in projected taxpayer savings (court arguments, Aug. 11)</li>
+              <li>$7.4M lower total occupancy cost than the next-closest finalist (Judge Hodge, Aug. 24)</li>
+              <li>~$600,000/month savings vs. other proposals (Judge Hodge, Aug. 24)</li>
+              <li>TRO and injunction denied, Aug. 24, 2026</li>
+              <li>Notice of appeal and AG motion to dismiss filed, Sept. 1, 2026</li>
+              <li>Barros divested his Liberty Junction stake, late July 2026</li>
+            </ul>
+            <a class="button outline" href="#take-action" data-page="take-action" style="margin-top:12px">Tell officials to finish the job</a>
+          </aside>
+        </div>
+      </section>
+      <section>
+        <div class="wrap split">
+          <div class="section-head" style="margin-bottom:0">
+            <span class="eyebrow">The real choice</span>
+            <h2>Every month of delay has a cost.</h2>
+            <p>This isn't a choice between "fast" and "careful." A judge has already reviewed the process and found the challengers' core legal theory has no support. Continued litigation from the losing bidders doesn't add scrutiny the deal hasn't already survived. It risks the savings and schedule Hampden County was promised.</p>
+            <p><strong>And there's a human cost.</strong> The current Hampden County courthouse (the Roderick Ireland Courthouse) has a documented history of serious employee illness. Two Springfield District Court judges who worked out of the same judicial chambers, Robert F. Kumor Jr. (died 2013) and William J. Boyle (died 2019), both died of ALS, and a longtime employee whose office sat one floor above them died of ALS in 2017. <a href="https://www.bostonglobe.com/metro/2020/02/04/illnesses-spark-concerns-about-workplace-hazards-springfield-courthouse/jjacviWxDEjj0zaPIYbeUP/story.html" target="_blank" rel="noopener noreferrer">(Boston Globe)</a> Mayor Domenic Sarno has stated publicly that five people who worked in the building have died of ALS and that 60 cancer cases have been linked to courthouse workers. <a href="https://www.springfield-ma.gov/cos/news-story?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=17235" target="_blank" rel="noopener noreferrer">(City of Springfield)</a> A 2021 class-action lawsuit alleged at least 25 former long-term employees had died of cancer; the building was later evaluated by NIOSH and the case was settled in 2022. <a href="https://www.bostonglobe.com/2021/09/04/metro/class-action-lawsuit-filed-over-long-troubled-springfield-courthouse/" target="_blank" rel="noopener noreferrer">(Boston Globe)</a> Independent testing conducted for a related lawsuit found toxic mold in the building's vents, walls, and carpeting. <a href="https://www.wamc.org/news/2022-03-16/federal-agencies-asked-to-investigate-conditions-at-state-courthouse-in-springfield" target="_blank" rel="noopener noreferrer">(WAMC)</a> An environmental consultant's testing did not identify a specific cause, and medical causation has not been established, but a Harvard environmental epidemiologist called the concentration of ALS cases in one building "suggestive of some environmental exposure." Every month spent in litigation over the replacement is another month Trial Court employees keep reporting to that building.</p>
+          </div>
+          <aside class="note">
+            <p><strong>The record is public:</strong> a competitive review, a signed evaluation, and a court ruling that already tested the objections raised against it and rejected them.</p>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+
+    <section class="page" id="documents" aria-labelledby="documents-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">Public documents</span>
+          <h1 id="documents-title">Read the reporting and rulings behind every claim on this site.</h1>
+          <p>Every figure and quote used in this campaign is sourced to published reporting on the court record. Follow the links below to read the original coverage.</p>
+        </div>
+      </div>
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Source library</span>
+            <h2>Primary reporting on the case.</h2>
+            <p>Each link below leads to independent local news coverage of the courthouse procurement, the lawsuit, and the August 24 ruling.</p>
+          </div>
+          <div class="cards">
+            <article class="report"><div><span class="tag">Aug. 5, 2026</span><h3>Liberty Junction fights to keep the project moving</h3><p>Liberty Junction's legal opposition to the plaintiffs' motion for a TRO and preliminary injunction.</p></div><a href="https://www.wwlp.com/news/local-news/hampden-county/liberty-junction-fights-to-keep-springfield-courthouse-project-moving/" target="_blank" rel="noopener noreferrer">Read the coverage (WWLP) →</a></article>
+            <article class="report"><div><span class="tag">Aug. 11, 2026</span><h3>Judge hears arguments over who will build the courthouse</h3><p>Hearing coverage including the $400 million+ taxpayer-savings argument and Richard Mann's on-the-record comments.</p></div><a href="https://www.westernmassnews.com/2026/08/11/judge-hears-arguments-over-who-will-build-springfields-2-billion-courthouse/" target="_blank" rel="noopener noreferrer">Read the coverage (Western Mass News) →</a></article>
+            <article class="report"><div><span class="tag">Aug. 24, 2026</span><h3>Judge denies motions challenging the courthouse bid</h3><p>Coverage of Justice Hodge's 29-page ruling denying the TRO and preliminary injunction motions.</p></div><a href="https://www.westernmassnews.com/2026/08/24/judge-denies-motions-challenging-springfield-courthouse-bid/" target="_blank" rel="noopener noreferrer">Read the coverage (Western Mass News) →</a></article>
+            <article class="report"><div><span class="tag">Aug. 25, 2026</span><h3>Judge rules in favor of the $2B contract</h3><p>Detailed reporting on Justice Hodge's reasoning, the conflict-of-interest ruling, and the savings figures cited in his decision.</p></div><a href="https://www.bostonherald.com/2026/08/25/judge-rules-in-favor-of-2b-state-contract-awarded-to-political-heavyweights-denies-injunction-request/" target="_blank" rel="noopener noreferrer">Read the coverage (Boston Herald) →</a></article>
+            <article class="report"><div><span class="tag">Sept. 1, 2026</span><h3>Developers appeal, AG moves to dismiss</h3><p>Coverage of Balise and Patel's notice of appeal and Attorney General Andrea Campbell's motion to dismiss the underlying case.</p></div><a href="https://www.wwlp.com/news/local-news/hampden-county/developers-appeal-refusal-to-pause-2-billion-springfield-regional-justice-center-deal/" target="_blank" rel="noopener noreferrer">Read the coverage (WWLP) →</a></article>
+            <article class="report"><div><span class="tag">2013–2022</span><h3>The current courthouse's health record</h3><p>Reporting on ALS deaths among Springfield District Court judges and staff, a 2021 class-action lawsuit, and a NIOSH health-hazard evaluation of the Roderick Ireland Courthouse.</p></div><a href="https://www.bostonglobe.com/metro/2020/02/04/illnesses-spark-concerns-about-workplace-hazards-springfield-courthouse/jjacviWxDEjj0zaPIYbeUP/story.html" target="_blank" rel="noopener noreferrer">Read the coverage (Boston Globe) →</a></article>
+            <article class="report"><div><span class="tag">Official</span><h3>Official DCAMM / Trial Court project materials</h3><p>The Commonwealth's official project page: procurement documents, submitted proposals, evaluations, cost analyses, and Asset Management Board authorization.</p></div><a href="https://www.mass.gov/info-details/springfield-regional-justice-center-project" target="_blank" rel="noopener noreferrer">View the official project page →</a></article>
+          </div>
+        </div>
+      </section>
+      <section class="dark">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Timeline</span>
+            <h2>How the litigation has unfolded.</h2>
+            <p>Dates and sources for every major development in the case so far.</p>
+          </div>
+          <ol class="timeline" style="--line:#547087">
+            <li><span class="date">July 9, 2026</span><h3>Lawsuit filed</h3><p>USPB JV, LLC (Jeb Balise) and Springfield Tower Square LLC (Dinesh Patel) sue DCAMM and Liberty Junction, seeking to block the lease. <a href="https://www.bostonherald.com/2026/08/25/judge-rules-in-favor-of-2b-state-contract-awarded-to-political-heavyweights-denies-injunction-request/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">Boston Herald</a></p></li>
+            <li><span class="date">Late July 2026</span><h3>Barros divests</h3><p>John Barros divests his interest in Liberty Junction amid public scrutiny of his role. <a href="https://www.bostonherald.com/2026/08/25/judge-rules-in-favor-of-2b-state-contract-awarded-to-political-heavyweights-denies-injunction-request/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">Boston Herald</a></p></li>
+            <li><span class="date">Aug. 11, 2026</span><h3>Court hears arguments</h3><p>A judge hears arguments on the TRO and injunction motions; no ruling issued that day. <a href="https://www.westernmassnews.com/2026/08/11/judge-hears-arguments-over-who-will-build-springfields-2-billion-courthouse/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">Western Mass News</a></p></li>
+            <li><span class="date">Aug. 24, 2026</span><h3>Motions denied</h3><p>Justice Hodge denies the TRO and preliminary injunction in a 29-page ruling, finding no support for the conflict-of-interest theory. <a href="https://www.westernmassnews.com/2026/08/24/judge-denies-motions-challenging-springfield-courthouse-bid/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">Western Mass News</a></p></li>
+            <li><span class="date">Sept. 1, 2026</span><h3>Appeal and motion to dismiss</h3><p>Balise and Patel file a notice of appeal; the Attorney General moves to dismiss the underlying case. <a href="https://www.wwlp.com/news/local-news/hampden-county/developers-appeal-refusal-to-pause-2-billion-springfield-regional-justice-center-deal/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">WWLP</a></p></li>
+          </ol>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="about" aria-labelledby="about-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">About this campaign</span>
+          <h1 id="about-title">For a courthouse Hampden County doesn't have to keep waiting for.</h1>
+          <p>Finish the Hampden County Courthouse is a public-information campaign supporting the Liberty Junction proposal for a new Hampden County courthouse and opposing further delay of a competitively reviewed, court-tested deal.</p>
+        </div>
+      </div>
+      <section>
+        <div class="wrap">
+          <article class="prose" style="max-width:820px">
+            <h2>Our position</h2>
+            <p>Hampden County's Trial Court employees, litigants, and residents need a modern courthouse, and they need it without unnecessary delay. DCAMM ran a competitive procurement, selected a proposal that state officials say saves taxpayers real money, and a Hampden County judge has already reviewed and rejected the losing bidders' central legal claims.</p>
+            <p>We believe continued litigation aimed at re-fighting a decided procurement doesn't protect the public. It risks the savings, the schedule, and the modern courthouse Hampden County has been promised.</p>
+            <h3>Our standards</h3>
+            <ul>
+              <li>Rely on court rulings and published reporting, with direct links to the source.</li>
+              <li>Attribute characterizations of motive to the party that made them. We do not allege wrongdoing beyond what the record shows.</li>
+              <li>Describe the case accurately, including that an appeal and a motion to dismiss remain pending.</li>
+              <li>Correct material errors promptly and visibly as the case develops.</li>
+              <li>Disclose relevant facts even when they complicate the story, including Liberty Junction's own ties to Barros and Harris.</li>
+            </ul>
+            <h3>Who should care</h3>
+            <p>Trial Court employees, court users, downtown Springfield residents and businesses, taxpayers across Hampden County, and anyone who wants a needed public project to move forward on the timeline and budget the public was promised.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="support" aria-labelledby="support-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">Support for the courthouse</span>
+          <h1 id="support-title">Court employees, civic leaders, and neighbors back a new Hampden County courthouse.</h1>
+          <p>Voices from across Hampden County on why the new courthouse matters, and why further delay isn't the answer.</p>
+        </div>
+      </div>
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">In their own words</span>
+            <h2>What supporters are saying.</h2>
+            <p>Labor leaders, state legislators, and Springfield city councilors on the Project Labor Agreement signed for the new Springfield Regional Justice Center. Quotes as reported by <a href="https://www.wwlp.com/news/local-news/hampden-county/project-labor-agreement-signed-for-new-springfield-regional-justice-center/" target="_blank" rel="noopener noreferrer">WWLP, Sept. 17, 2026</a>.</p>
+          </div>
+          <div class="quote-grid">
+            <article class="quote-card">
+              <p class="quote-text">“The Massachusetts Federation of Labor (AFL-CIO) applauds the signing of a Project Labor Agreement with our Building Trades unions for the new Springfield Regional Justice Center that will guarantee good wages and benefits, prioritize safety and training, and invest in the local economy. This agreement is the result of Governor Healey’s leadership in signing a 2024 Executive Order prioritizing PLAs on projects and uplifting the diversity of our local workforce. We are proud to represent workers on both sides of this project – the workers who will build it and the trial court employees who will work there when the project is complete. Projects like the Springfield courthouse reaffirm the shared commitment of the Massachusetts labor movement and Governor Healey to build an economy that leverages the power of responsible government investment to support and grow the middle class.”</p>
+              <p class="quote-attr">Chrissy Lynch, President of the Massachusetts AFL-CIO</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“The Western MA Building Trades Unions are proud to celebrate this major win for Western Massachusetts. A Project Labor Agreement on the Springfield Courthouse builds directly on the success of the Holyoke Veterans Home, ensuring that local workers earn strong union wages, solid benefits, and work under the safest conditions in the industry. This PLA reinforces our region’s commitment to high‑quality construction, local hiring, and fair labor standards that uplift working families. It also expands access to our world‑class Apprenticeship Training programs, opening the door for more area residents to gain the skills, credentials, and support they need to build long‑term, family‑sustaining careers in the building trades. Investments like this strengthen our communities, grow our workforce, and ensure Western MA continues to lead the way in delivering projects that reflect the highest standards of excellence.”</p>
+              <p class="quote-attr">Colton Andrews, President of the Western Mass Building Trades Union</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“This is great news for the Pioneer Valley. A Project Labor Agreement on the Springfield Courthouse builds on the success at the Holyoke Veterans Home creating jobs for local workers to earn good wages and benefits with safe working conditions. It also opens up opportunities for more area residents at our world class Apprenticeship Training programs to prepare them for good paying careers in the trades.”</p>
+              <p class="quote-attr">Frank Callahan, President of the Massachusetts Building Trades Unions</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“This agreement is great news for Hampden County. Thanks to the Healey-Driscoll Administration’s leadership, the new courthouse will be built by highly skilled workers earning fair wages, while creating opportunities for local residents and apprentices to build lasting careers. I said it all along that the only way this project could be built is with our unions and a PLA – I am very happy our building trades will be involved.”</p>
+              <p class="quote-attr">State Representative Angelo J. Puppolo, Jr., Chairperson, House Committee on Intergovernmental Affairs</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“This project labor agreement reflects our shared commitment to making sure this major public investment benefits the people of Springfield and the entire region. The new Hampden County courthouse will strengthen our community while creating good-paying union jobs for local workers. I thank the Healey-Driscoll Administration for its continued partnership and commitment to Western Massachusetts.”</p>
+              <p class="quote-attr">State Representative Bud L. Williams, House Chairperson, Joint Committee on Racial Equity, Civil Rights, and Inclusion</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“The signing of a project labor agreement for the new Springfield Regional Justice Center is an important milestone for our city. I applaud the Healey-Driscoll Administration for its continued investment in Springfield and commitment to communities across Western Massachusetts.”</p>
+              <p class="quote-attr">Springfield City Councilor Victor Davila</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“We applaud Governor Healey for moving this project forward with clear and established standards. Using a project labor agreement ensures that it will create good jobs for trades workers in Western Massachusetts; operate safely and efficiently; and protect the investment of the taxpayers of the Commonwealth.”</p>
+              <p class="quote-attr">Joe Byrne, Executive Secretary-Treasurer of the North Atlantic States Regional Council of Carpenters</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">“A new courthouse represents an important investment in Springfield’s future. This project will provide residents with a safe, modern, and accessible place to seek justice, while unlocking the surrounding area for further economic development. Having chaired the City Council’s Responsible Employer Ordinance Committee, I understand the importance of ensuring that major public investments create good local jobs. I am pleased that a Project Labor Agreement is now in place to support Springfield’s workers and its businesses.”</p>
+              <p class="quote-attr">Springfield City Councilor Melvin Edwards</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="action-section">
+        <div class="wrap" style="text-align:center">
+          <div class="section-head" style="margin:0 auto">
+            <span class="eyebrow">Add your voice</span>
+            <h2>Support the courthouse.</h2>
+            <p>Join residents, court employees, and civic leaders asking officials to finish the job.</p>
+          </div>
+          <a class="button primary" href="#take-action" data-page="take-action" style="margin-top:10px">Tell officials to finish the job</a>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="take-action" aria-labelledby="action-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">Take action</span>
+          <h1 id="action-title">Tell officials: uphold the ruling, and build the courthouse.</h1>
+          <p>Use this page to contact public officials, sign up for updates, or share the facts about the case with your neighbors.</p>
+        </div>
+      </div>
+      <section class="action-section">
+        <div class="wrap action-grid">
+          <div>
+            <div class="section-head">
+              <span class="eyebrow">Your message</span>
+              <h2>Build the courthouse. Stop the delay.</h2>
+              <p>Copy and personalize this message for state and local decision-makers.</p>
+            </div>
+            <div style="background:rgba(255,255,255,.11); padding:27px; border-left:5px solid var(--gold); color:#fff">
+              <p style="margin:0">"I support moving forward with the Liberty Junction courthouse deal for Hampden County. A Hampden County judge already reviewed and rejected the losing bidders' request to halt this project, finding no legal or logical support for their central claim. State officials say this proposal saves taxpayers $400 million or more. Every month of additional litigation risks that savings and delays a courthouse that court employees, litigants, and residents need now. I ask you to uphold the procurement decision, oppose further delay tactics from the unsuccessful bidders, and move forward with construction."</p>
+            </div>
+            <div class="buttons" style="margin-top:22px">
+              <button class="button primary" id="copyMessage" type="button">Copy message</button>
+              <a class="button secondary" href="mailto:?subject=Finish%20the%20Hampden%20County%20Courthouse&body=I%20support%20moving%20forward%20with%20the%20Liberty%20Junction%20courthouse%20deal%20for%20Hampden%20County.%20A%20Hampden%20County%20judge%20already%20reviewed%20and%20rejected%20the%20losing%20bidders%27%20request%20to%20halt%20this%20project%2C%20finding%20no%20legal%20or%20logical%20support%20for%20their%20central%20claim.%20State%20officials%20say%20this%20proposal%20saves%20taxpayers%20%24400%20million%20or%20more.%20Every%20month%20of%20additional%20litigation%20risks%20that%20savings%20and%20delays%20a%20courthouse%20that%20court%20employees%2C%20litigants%2C%20and%20residents%20need%20now.%20I%20ask%20you%20to%20uphold%20the%20procurement%20decision%2C%20oppose%20further%20delay%20tactics%20from%20the%20unsuccessful%20bidders%2C%20and%20move%20forward%20with%20construction.">Email this message</a>
+            </div>
+          </div>
+          <aside class="form-box">
+            <h3>Submit a question</h3>
+            <p>Use this form to collect questions from residents. Connect it to your Squarespace form storage, Formspree, Google Forms, or email platform before publishing.</p>
+            <form id="questionForm">
+              <label for="questionName">Name</label>
+              <input id="questionName" type="text" placeholder="Your name">
+              <label for="questionEmail">Email address</label>
+              <input id="questionEmail" type="email" placeholder="you@example.com" required>
+              <label for="questionText">Your question</label>
+              <textarea id="questionText" placeholder="What should be addressed in the public record?"></textarea>
+              <button class="button red" type="submit" style="width:100%; margin-top:14px; border:0">Submit question</button>
+              <div class="form-message" id="questionMessage">Thank you. This demo form is ready to connect to your preferred form service.</div>
+            </form>
+          </aside>
+        </div>
+      </section>
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Share responsibly</span>
+            <h2>Help keep the discussion fact-based.</h2>
+            <p>When sharing this campaign, stick to the court's findings and the figures state officials have put on the record. Link to source reporting and correct inaccuracies when they arise.</p>
+          </div>
+          <div class="cards">
+            <article class="card"><h3>Share the facts</h3><p>Post the court's findings and the savings figures in community forums, neighborhood groups, and local civic conversations.</p></article>
+            <article class="card"><h3>Follow the appeal</h3><p>Track Balise and Patel's appeal and the Attorney General's motion to dismiss as the case proceeds.</p></article>
+            <article class="card"><h3>Support the timeline</h3><p>Ask officials to keep the project moving on schedule so Hampden County isn't left waiting any longer.</p></article>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Finish the Hampden County Courthouse</h3>
+          <p>A public-information campaign supporting the Liberty Junction deal and a modern courthouse for Hampden County, without further delay.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#the-deal" data-page="the-deal">The Deal</a></li>
+            <li><a href="#documents" data-page="documents">Documents</a></li>
+            <li><a href="#support" data-page="support">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Act</h3>
+          <ul>
+            <li><a href="#take-action" data-page="take-action">Tell officials to finish the job</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Finish the Hampden County Courthouse. All rights reserved. Reproduction of site text and graphics without permission is prohibited.</div>
+    </div>
+  </footer>
+
+  <script>
+    const pages = [...document.querySelectorAll('.page')];
+    const pageLinks = [...document.querySelectorAll('[data-page]')];
+    const navLinks = document.getElementById('navLinks');
+    const menuButton = document.getElementById('menuButton');
+
+    function showPage(pageId) {
+      const target = document.getElementById(pageId) ? pageId : 'home';
+      pages.forEach(page => page.classList.toggle('active', page.id === target));
+      pageLinks.forEach(link => link.classList.toggle('active', link.dataset.page === target));
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.title = (target === 'home' ? "Finish the Hampden County Courthouse | Support the Liberty Junction Deal" : document.querySelector('#' + target + ' h1').textContent.trim() + " | Finish the Hampden County Courthouse");
+    }
+
+    function route() {
+      showPage(location.hash.replace('#', '') || 'home');
+    }
+
+    window.addEventListener('hashchange', route);
+    window.addEventListener('load', route);
+    pageLinks.forEach(link => link.addEventListener('click', () => setTimeout(route, 0)));
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', event => {
+      event.preventDefault();
+      document.getElementById('signupMessage').style.display = 'block';
+    });
+
+    document.getElementById('questionForm').addEventListener('submit', event => {
+      event.preventDefault();
+      document.getElementById('questionMessage').style.display = 'block';
+    });
+
+    document.getElementById('copyMessage').addEventListener('click', async () => {
+      const message = "I support moving forward with the Liberty Junction courthouse deal for Hampden County. A Hampden County judge already reviewed and rejected the losing bidders' request to halt this project, finding no legal or logical support for their central claim. State officials say this proposal saves taxpayers $400 million or more. Every month of additional litigation risks that savings and delays a courthouse that court employees, litigants, and residents need now. I ask you to uphold the procurement decision, oppose further delay tactics from the unsuccessful bidders, and move forward with construction.";
+      const button = document.getElementById('copyMessage');
+      try {
+        await navigator.clipboard.writeText(message);
+        button.textContent = 'Message copied';
+      } catch (error) {
+        button.textContent = 'Select and copy message above';
+      }
+      setTimeout(() => { button.textContent = 'Copy message'; }, 2200);
+    });
+
+    // Load the vertical (9:16) hero video on phones and the widescreen
+    // version on larger screens, chosen before the browser requests a source.
+    // Force hero video playback — some browsers/networks silently ignore the
+    // `autoplay` HTML attribute (data-saver mode, slow connections, strict
+    // autoplay heuristics). Explicitly call play() and retry a few times.
+    (function () {
+      const heroVideo = document.querySelector('video.hero-video');
+      if (!heroVideo) return;
+      const heroSource = heroVideo.querySelector('source');
+      if (heroSource) {
+        const isMobile = window.matchMedia('(max-width: 640px)').matches;
+        const chosenSrc = heroSource.getAttribute(isMobile ? 'data-src-mobile' : 'data-src-desktop');
+        if (chosenSrc) {
+          heroSource.setAttribute('src', chosenSrc);
+          heroVideo.load();
+        }
+      }
+      let attempts = 0;
+      function attemptPlay() {
+        attempts += 1;
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            if (attempts < 5) setTimeout(attemptPlay, 700);
+          });
+        }
+      }
+      if (heroVideo.readyState >= 2) {
+        attemptPlay();
+      } else {
+        heroVideo.addEventListener('loadeddata', attemptPlay, { once: true });
+        heroVideo.addEventListener('canplay', attemptPlay, { once: true });
+      }
+      // If it's still paused once the page has fully settled, try once more.
+      window.addEventListener('load', () => { if (heroVideo.paused) attemptPlay(); });
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && heroVideo.paused) attemptPlay();
+      });
+    })();
+  </script>
+</body>
+</html>
