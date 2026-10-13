@@ -58,6 +58,9 @@
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,16,28,.84) 0%, rgba(4,16,28,.62) 46%, rgba(4,16,28,.24) 100%), linear-gradient(to top, rgba(4,16,28,.88) 0%, rgba(4,16,28,.45) 45%, rgba(4,16,28,.3) 100%); z-index: 0; }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); align-items: end; gap: 55px; }
     .stats-band { background: var(--navy); color: #fff; padding: 52px 0 58px; }
+    .ad-band { background: #05121d; padding: 56px 0; }
+    .ad-video { display: block; width: 100%; max-width: 1080px; margin: 0 auto; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+    @media (max-width: 620px) { .ad-band { padding: 0; } .ad-band .wrap { padding: 0; width: 100%; } }
     .stats-lede { margin: 0 0 36px; max-width: 26ch; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 3.5vw, 2.85rem); font-weight: 700; line-height: 1.12; letter-spacing: -.035em; color: #fff; }
     .stats-lede strong { color: var(--gold); font-weight: 700; }
     .kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
@@ -328,6 +331,15 @@
               <span>ALS deaths, along with 60 cancer cases, identified among workers at the current Roderick L. Ireland Courthouse. <a href="https://www.masslive.com/news/2022/03/5-als-deaths-60-cancer-cases-identified-among-workers-at-troubled-roderick-ireland-courthouse-in-springfield.html" target="_blank" rel="noopener noreferrer">(MassLive, March 2022)</a></span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="ad-band" aria-label="Campaign ad">
+        <div class="wrap">
+          <video class="ad-video" controls playsinline preload="metadata" poster="images/campaign-ad-poster.jpg">
+            <source src="video/campaign-ad.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
         </div>
       </section>
 
