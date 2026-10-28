@@ -102,6 +102,20 @@
     .card h3 { margin-bottom: 13px; }
     .card p { color: var(--muted); margin: 0; }
     .card .num { display: block; margin-bottom: 18px; color: var(--gold); font-size: 2rem; font-weight: 900; line-height: 1; }
+    .news-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; align-items: start; }
+    .news-feature { background: var(--paper); box-shadow: var(--shadow); border-top: 5px solid var(--red); }
+    .news-embed { position: relative; aspect-ratio: 16 / 9; background: #000; }
+    .news-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .news-body { padding: 22px 26px 26px; }
+    .news-list { display: grid; gap: 20px; }
+    .news-card { display: block; padding: 24px 26px; background: var(--paper); box-shadow: var(--shadow); border-top: 5px solid var(--navy2); color: inherit; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+    .news-card:hover, .news-card:focus-visible { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(8,45,73,.16); }
+    .news-outlet { display: block; margin-bottom: 8px; color: var(--red); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .news-section h3 { margin: 0 0 10px; font-size: 1.3rem; line-height: 1.25; }
+    .news-card p { margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
+    .news-link { color: var(--navy2); font-weight: 800; text-decoration: none; }
+    .news-link::after { content: " \2192"; color: var(--gold); }
+    @media (max-width: 920px) { .news-grid { grid-template-columns: 1fr; } }
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
     .note { padding: 34px; background: var(--mist); border-left: 6px solid var(--gold); }
     .note p { margin: 0; font-size: 1.17rem; color: var(--navy); }
@@ -340,6 +354,41 @@
             <source src="video/campaign-ad.mp4" type="video/mp4">
             Your browser does not support embedded video.
           </video>
+        </div>
+      </section>
+
+      <section class="news-section" aria-labelledby="news-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">In the news</span>
+            <h2 id="news-title">Recent coverage</h2>
+          </div>
+          <div class="news-grid">
+            <article class="news-feature">
+              <div class="news-embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/0nTo7Lq3QGI" title="Springfield courthouse project could bring more than 1,700 jobs (WWLP-22News)" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="news-body">
+                <span class="news-outlet">WWLP-22News · Video</span>
+                <h3>Springfield courthouse project could bring more than 1,700 jobs</h3>
+                <a class="news-link" href="https://youtu.be/0nTo7Lq3QGI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+              </div>
+            </article>
+            <div class="news-list">
+              <a class="news-card" href="https://www.westernmassnews.com/2026/10/28/community-talks-new-courthouse-ahead-construction-process/" target="_blank" rel="noopener noreferrer">
+                <span class="news-outlet">Western Mass News · Oct. 28, 2026</span>
+                <h3>Community talks new courthouse ahead of construction process</h3>
+                <p>The NAACP, the Urban League, and Hope CDC met with the developers to push for local businesses, minority workers, and contractors.</p>
+                <span class="news-link">Read and watch the report</span>
+              </a>
+              <a class="news-card" href="https://www.masslive.com/westernmass/2026/10/springfield-black-leaders-announce-support-of-liberty-junction.html" target="_blank" rel="noopener noreferrer">
+                <span class="news-outlet">MassLive · Oct. 27, 2026</span>
+                <h3>Springfield Black leaders announce support of Liberty Junction</h3>
+                <p>State Rep. Bud Williams, four city councilors, and Springfield NAACP President Bishop Talbert Swan announced their support for the project.</p>
+                <span class="news-link">Read the article</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
