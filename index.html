@@ -168,6 +168,34 @@
     .report h3 { margin: 14px 0; }
     .report p { margin: 0 0 22px; color: var(--muted); font-size: .93rem; }
     .report a { color: var(--navy2); font-weight: 900; font-size: .84rem; text-transform: uppercase; letter-spacing: .04em; }
+    .event-band { background: var(--gold); color: var(--navy); padding: 48px 0; }
+    .event-band-grid { display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
+    .event-date { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 132px; height: 132px; background: var(--navy); color: #fff; text-transform: uppercase; font-weight: 900; letter-spacing: .08em; font-size: .78rem; }
+    .event-date strong { font-family: Georgia, 'Times New Roman', serif; font-size: 3.4rem; line-height: 1; letter-spacing: -.02em; color: var(--gold); }
+    .event-band .eyebrow { color: var(--navy); }
+    .event-band h2 { margin: 6px 0 10px; color: var(--navy); font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.15; }
+    .event-band p { margin: 0 0 20px; max-width: 760px; color: var(--ink); font-size: 1.04rem; line-height: 1.6; }
+    .event-band .buttons { margin: 0; }
+    .event-band .button.primary { background: var(--navy); color: #fff; }
+    .button.outline-light { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .event-section { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .event-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+    .event-body p { margin: 0 0 16px; color: var(--ink); font-size: 1.04rem; line-height: 1.7; }
+    .event-body .event-pull { padding: 4px 0 4px 20px; border-left: 4px solid var(--gold); color: var(--navy); font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-style: italic; }
+    .event-body .event-tagline { margin-top: 22px; color: var(--red); font-weight: 900; }
+    .event-card { padding: 28px; background: var(--navy); color: #fff; border-top: 5px solid var(--gold); }
+    .event-card h3 { margin: 0 0 16px; color: #fff; font-size: 1.35rem; }
+    .event-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 18px; }
+    .event-card dt { color: var(--gold); font-size: .76rem; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; padding-top: 3px; }
+    .event-card dd { margin: 0; line-height: 1.5; }
+    .event-card-buttons { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .event-card .button.outline { color: #fff; border-color: rgba(255,255,255,.6); background: transparent; }
+    .event-quotes { margin-top: 40px; }
+    .media-card p { margin: 0 0 12px; color: var(--ink); line-height: 1.55; }
+    .media-card .quote-attr { margin-bottom: 10px; text-transform: uppercase; letter-spacing: .07em; font-size: .8rem; color: var(--red); }
+    .media-card a { color: var(--navy2); font-weight: 700; }
+    @media (max-width: 920px) { .event-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .event-band-grid { grid-template-columns: 1fr; gap: 20px; } .event-date { flex-direction: row; gap: 10px; width: auto; height: auto; padding: 10px 16px; justify-self: start; } .event-date strong { font-size: 2rem; } .event-card dl { grid-template-columns: 1fr; gap: 2px; } .event-card dd { margin-bottom: 10px; } }
     .issue-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
     .issue-list li { border-bottom: 1px solid var(--line); }
     .issue-list a { display: grid; grid-template-columns: 140px 1fr auto; gap: 20px; align-items: baseline; padding: 18px 4px; color: var(--ink); text-decoration: none; transition: background .18s ease; }
@@ -365,6 +393,22 @@
             <div class="kpi">
               <strong>5</strong>
               <span>ALS deaths, along with 60 cancer cases, identified among workers at the current Roderick L. Ireland Courthouse. <a href="https://www.masslive.com/news/2022/03/5-als-deaths-60-cancer-cases-identified-among-workers-at-troubled-roderick-ireland-courthouse-in-springfield.html" target="_blank" rel="noopener noreferrer">(MassLive, March 2022)</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="event-band" aria-labelledby="event-home-title">
+        <div class="wrap event-band-grid">
+          <div class="event-date" aria-hidden="true"><span>Nov</span><strong>10</strong><span>6:00 PM</span></div>
+          <div>
+            <span class="eyebrow">Community Conversation #2 · You're invited</span>
+            <h2 id="event-home-title">Join the conversation about the new courthouse.</h2>
+            <p>Tuesday, November 10, 2026, at 6:00 PM. Brightwood Elementary School (Cafetorium), 255 Plainfield St., Springfield. Learn about local jobs, construction contracts, workforce development, and business opportunities connected to the project. Spanish translation will be available.</p>
+            <div class="buttons">
+              <a class="button primary" href="#newsletter" data-page="newsletter">Event details</a>
+              <a class="button outline-light" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Community+Conversation+%232%3A+Springfield+Regional+Justice+Center&amp;dates=20261110T180000/20261110T200000&amp;ctz=America/New_York&amp;location=Brightwood+Elementary+School,+255+Plainfield+St.,+Springfield,+MA+01107&amp;details=Learn,+share+perspectives,+and+ask+questions+about+the+new+courthouse+project.+Spanish+translation+available." target="_blank" rel="noopener noreferrer">Add to calendar</a>
+              <a class="button outline-light" href="https://www.google.com/maps/search/?api=1&amp;query=Brightwood+Elementary+School+255+Plainfield+St+Springfield+MA+01107" target="_blank" rel="noopener noreferrer">Get directions</a>
             </div>
           </div>
         </div>
@@ -732,10 +776,64 @@
       <div class="page-hero">
         <div class="wrap">
           <span class="eyebrow">Newsletter</span>
-          <h1 id="newsletter-title">Campaign updates, and the record behind them.</h1>
-          <p>Every issue of the campaign newsletter, plus what the state's own environmental testing found inside the Roderick L. Ireland Courthouse and how local news covered it.</p>
+          <h1 id="newsletter-title">Campaign updates, events, and the record behind them.</h1>
+          <p>Upcoming community events and every issue of the campaign newsletter, plus what the state's own environmental testing found inside the Roderick L. Ireland Courthouse and how local news covered it.</p>
         </div>
       </div>
+      <section class="event-section" aria-labelledby="event-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Upcoming event · Media advisory</span>
+            <h2 id="event-title">Community Conversation #2: Springfield Regional Justice Center</h2>
+            <p>Greater Springfield residents are invited to learn, share perspectives, and engage in conversation about the new courthouse project.</p>
+          </div>
+          <div class="event-layout">
+            <div class="event-body">
+              <p>Liberty Junction invites residents from Greater Springfield, community organizations, neighborhood leaders, and local businesses to join the second Community Conversation about the Springfield Regional Justice Center Project on Tuesday, November 10, 2026, at 6:00 PM at Brightwood Elementary School.</p>
+              <p>The conversation will also highlight opportunities for community participation, including local jobs, construction contracts, returning-citizen initiatives, workforce development, business participation, and other trade contracting opportunities connected to the project.</p>
+              <p>The event is co-hosted by the Bilingual Veterans Outreach Center of Massachusetts, Inc., Hispanic-American Library, Inc., Union Capital, and ECCHO Latino, in partnership with the Liberty Junction team.</p>
+              <p class="event-pull">"We believe meaningful community engagement starts with listening, building relationships, and making sure residents have an opportunity to be part of conversations that impact their community. We want to create space for questions, ideas, and voices that deserve to be heard."</p>
+              <p>Community members are encouraged to attend, bring their questions, and invite others who may be interested in learning more.</p>
+              <p class="event-tagline">Your community. Your voice. Your opportunity to be part of the conversation.</p>
+            </div>
+            <aside class="event-card" aria-label="Event details">
+              <h3>Event details</h3>
+              <dl>
+                <dt>What</dt><dd>Community Conversation #2: Springfield Regional Justice Center</dd>
+                <dt>When</dt><dd>Tuesday, November 10, 2026, 6:00 PM</dd>
+                <dt>Where</dt><dd>Brightwood Elementary School (Cafetorium)<br>255 Plainfield St., Springfield, MA 01107</dd>
+                <dt>Language</dt><dd>Spanish translation available<br><span lang="es">Habrá traducción al español.</span></dd>
+                <dt>Co-hosts</dt><dd>Bilingual Veterans Outreach Center of Massachusetts, Inc.; Hispanic-American Library, Inc.; Union Capital; ECCHO Latino; in partnership with Liberty Junction</dd>
+              </dl>
+              <div class="event-card-buttons">
+                <a class="button primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Community+Conversation+%232%3A+Springfield+Regional+Justice+Center&amp;dates=20261110T180000/20261110T200000&amp;ctz=America/New_York&amp;location=Brightwood+Elementary+School,+255+Plainfield+St.,+Springfield,+MA+01107&amp;details=Learn,+share+perspectives,+and+ask+questions+about+the+new+courthouse+project.+Spanish+translation+available." target="_blank" rel="noopener noreferrer">Add to calendar</a>
+                <a class="button outline" href="https://www.google.com/maps/search/?api=1&amp;query=Brightwood+Elementary+School+255+Plainfield+St+Springfield+MA+01107" target="_blank" rel="noopener noreferrer">Get directions</a>
+              </div>
+            </aside>
+          </div>
+          <div class="quote-grid event-quotes">
+            <article class="quote-card">
+              <p class="quote-text">"We at The Bilingual Veterans Outreach Centers of Mass Inc. are in accord that 125 Liberty St. in Springfield is the location where our new Courthouse project is installed. This location offers … plenty of parking adjacent to it. The location can be accessed from all geographical locations."</p>
+              <p class="quote-attr">First Sergeant Gumersindo Gomez, U.S. Army (Ret.), Executive Director, Bilingual Veterans Outreach Centers of Massachusetts</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">"True community development extends beyond constructing buildings; it requires active engagement, equity, and fostering economic growth for all residents. We hope to ensure our community has a meaningful voice, access to job training, and a fair share of the economic opportunities that revitalize our local neighborhoods."</p>
+              <p class="quote-attr">Juan Falcon, Founder and Executive Director, Hispanic-American Library, Inc.</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">"As a school deeply rooted in the Springfield community, Libertas Academy is encouraged by the promise of the new Springfield Regional Justice Center just down the street from our campus. We see this project as an opportunity to bring meaningful investment, economic growth, and new opportunities to our neighborhood. We look forward to remaining actively engaged in the process, ensuring that the voices of residents, families, and local organizations are heard and that this development ultimately benefits everyone in our community."</p>
+              <p class="quote-attr">Modesto Montero, Founder and Executive Director, Libertas Academy</p>
+            </article>
+            <article class="quote-card media-card">
+              <p class="quote-attr">For the media</p>
+              <p>First Sergeant Gumersindo Gomez, VA/VVA Accredited Service Officer and 20-year U.S. Army veteran (Ret.), will be in attendance and available for interviews.</p>
+              <p><strong>Waleska Lugo-DeJesús</strong>, Community Engagement Partner, Liberty Junction<br><a href="mailto:inclusivestrategies@comcast.net">inclusivestrategies@comcast.net</a> · <a href="tel:+14132312323">413-231-2323</a></p>
+              <p><strong>Tony Cignoli</strong><br><a href="tel:+14138969675">413-896-9675</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section>
         <div class="wrap">
           <div class="section-head">
