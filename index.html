@@ -104,6 +104,19 @@
     .card h3 { margin-bottom: 13px; }
     .card p { color: var(--muted); margin: 0; }
     .card .num { display: block; margin-bottom: 18px; color: var(--gold); font-size: 2rem; font-weight: 900; line-height: 1; }
+    .study-feature { display: block; margin-bottom: 24px; padding: 30px 32px; background: var(--navy); color: #fff; border-top: 5px solid var(--gold); box-shadow: var(--shadow); text-decoration: none; transition: transform .18s ease; }
+    .study-feature:hover, .study-feature:focus-visible { transform: translateY(-3px); }
+    .study-feature .news-outlet { color: var(--gold); }
+    .news-section .study-feature h3 { color: #fff; font-size: clamp(1.45rem, 2.4vw, 1.95rem); max-width: 44ch; }
+    .study-head p { margin: 0 0 22px; max-width: 760px; color: #d4e0e7; line-height: 1.6; }
+    .study-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .study-stats div { padding: 16px 16px 18px; background: rgba(255,255,255,.07); border-left: 3px solid var(--gold); }
+    .study-stats strong { display: block; margin-bottom: 6px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.4rem, 2.1vw, 1.85rem); line-height: 1.1; color: var(--gold); }
+    .study-stats span { display: block; color: #e8eef2; font-size: .88rem; line-height: 1.45; }
+    .study-note { margin: 20px 0 14px; max-width: 860px; color: #b9cad4; font-size: .92rem; line-height: 1.6; }
+    .study-feature .news-link { color: #fff; }
+    @media (max-width: 1100px) { .study-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } .study-stats div:last-child { grid-column: span 2; } }
+    @media (max-width: 620px) { .study-feature { padding: 24px 20px; } .study-stats { grid-template-columns: 1fr 1fr; gap: 12px; } .study-stats div:last-child { grid-column: 1 / -1; } }
     .news-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; align-items: start; }
     .news-feature { background: var(--paper); box-shadow: var(--shadow); border-top: 5px solid var(--red); }
     .news-embed { position: relative; aspect-ratio: 16 / 9; background: #000; }
@@ -432,6 +445,22 @@
             <span class="eyebrow">In the news</span>
             <h2 id="news-title">Recent coverage</h2>
           </div>
+          <a class="study-feature" href="https://www.masslive.com/westernmass/2026/11/springfield-courthouse-study-shows-3000-jobs-created-during-construction.html" target="_blank" rel="noopener noreferrer">
+            <div class="study-head">
+              <span class="news-outlet">MassLive · Nov. 10, 2026</span>
+              <h3>Springfield courthouse study shows 3,000 jobs created during construction</h3>
+              <p>An economic study prepared for Suffolk Construction by BW Research Partnership projects these impacts from the roughly 3½ years of construction, MassLive reported.</p>
+            </div>
+            <div class="study-stats">
+              <div><strong>3,000</strong><span>jobs over about 42 months of construction</span></div>
+              <div><strong>$419M</strong><span>added to Massachusetts' gross state product</span></div>
+              <div><strong>$322M</strong><span>in new labor income for workers</span></div>
+              <div><strong>$94M+</strong><span>in new federal, state and local tax revenue</span></div>
+              <div><strong>$71K to $72K</strong><span>average annual construction wage, vs. a $54,800 Hampden County median</span></div>
+            </div>
+            <p class="study-note">The study projects 300 jobs in year one, 1,100 in year two, 900 in year three and 600 in the final six months. Some positions will likely be held by the same workers from year to year, the study said.</p>
+            <span class="news-link">Read the article</span>
+          </a>
           <div class="news-grid">
             <article class="news-feature">
               <div class="news-embed">
