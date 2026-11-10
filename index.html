@@ -43,6 +43,8 @@
     .brand-text { color: var(--navy); font-size: .86rem; font-weight: 900; line-height: 1.06; letter-spacing: .045em; text-transform: uppercase; }
     .brand-text span { display: block; color: var(--red); font-size: .67rem; letter-spacing: .12em; margin-top: 4px; }
     .nav-links { display: flex; align-items: center; gap: 22px; color: var(--navy); font-size: .87rem; font-weight: 800; }
+    .nav-links a { white-space: nowrap; }
+    @media (max-width: 1180px) and (min-width: 921px) { .nav-links { gap: 14px; font-size: .8rem; } .brand { min-width: 0; } .brand-text { font-size: .78rem; } }
     .nav-links a:hover, .nav-links a.active { color: var(--red); }
     .nav-cta { padding: 10px 13px; background: var(--red); color: #fff !important; text-transform: uppercase; font-size: .76rem; letter-spacing: .05em; }
     .menu-button { display: none; border: 1px solid var(--line); background: #fff; color: var(--navy); padding: 9px 11px; font-weight: 800; cursor: pointer; }
@@ -351,6 +353,7 @@
         <a href="#about" data-page="about">About</a>
         <a href="#support" data-page="support">Support</a>
         <a href="#newsletter" data-page="newsletter">Newsletter</a>
+        <a href="#mold-reports" data-page="mold-reports">Mold Reports</a>
         <a class="nav-cta" href="#take-action" data-page="take-action">Take action</a>
       </div>
     </nav>
@@ -776,8 +779,8 @@
       <div class="page-hero">
         <div class="wrap">
           <span class="eyebrow">Newsletter</span>
-          <h1 id="newsletter-title">Campaign updates, events, and the record behind them.</h1>
-          <p>Upcoming community events and every issue of the campaign newsletter, plus what the state's own environmental testing found inside the Roderick L. Ireland Courthouse and how local news covered it.</p>
+          <h1 id="newsletter-title">Campaign updates and community events.</h1>
+          <p>Upcoming community events and every issue of the campaign newsletter from the Liberty Junction team.</p>
         </div>
       </div>
       <section class="event-section" aria-labelledby="event-title">
@@ -852,6 +855,16 @@
           <a class="button outline" href="https://us1.campaign-archive.com/home/?u=219f2b06c24a70d33d6dd8a11&amp;id=763422a5dd" target="_blank" rel="noopener noreferrer" style="margin-top:26px">View the full archive</a>
         </div>
       </section>
+    </section>
+
+    <section class="page" id="mold-reports" aria-labelledby="mold-title">
+      <div class="page-hero">
+        <div class="wrap">
+          <span class="eyebrow">Mold Reports</span>
+          <h1 id="mold-title">What the state's own testing found inside the courthouse.</h1>
+          <p>Air-quality results from the Trial Court's environmental consultants at the Roderick L. Ireland Courthouse, how local news covered the lawsuit to close the building, and links to the full reports.</p>
+        </div>
+      </div>
       <section class="mold-section">
         <div class="wrap">
           <div class="section-head">
@@ -1050,6 +1063,7 @@
             <li><a href="#documents" data-page="documents">Documents</a></li>
             <li><a href="#support" data-page="support">Support</a></li>
             <li><a href="#newsletter" data-page="newsletter">Newsletter</a></li>
+            <li><a href="#mold-reports" data-page="mold-reports">Mold Reports</a></li>
           </ul>
         </div>
         <div>
